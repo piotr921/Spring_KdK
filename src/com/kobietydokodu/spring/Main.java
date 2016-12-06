@@ -7,14 +7,15 @@ public class Main {
     public static void main(String[] args) {
 
         Cat kot = new Cat();
-        Date birth = new Date();
+        Date birth;
+        Float weight;
         kot.setName(Interface.readName());
         kot.setOwner(Interface.readOwner());
 
         do {
             try {
                 birth = Interface.readDate();
-            } catch (WrongDateFormatException e) {
+            } catch (WrongInputDataFormatException e) {
                 System.out.println(e.getMessage());
                 birth = null;
                 if (e.getCause() != null) {
@@ -24,7 +25,20 @@ public class Main {
         } while(birth == null);
 
         kot.setBirthDate(birth);
-        kot.setWeight(Interface.readWeight());
+
+        do {
+            try {
+                weight = Interface.readWeight();
+            } catch (WrongInputDataFormatException e) {
+                System.out.println(e.getMessage());
+                weight = null;
+                if (e.getCause() != null) {
+                    System.out.println(" Orginal exception: " + e.getCause().getMessage());
+                }
+            }
+        } while(weight == null);
+
+        kot.setWeight(weight);
 
         System.out.println(kot.introduceYourself());
     }

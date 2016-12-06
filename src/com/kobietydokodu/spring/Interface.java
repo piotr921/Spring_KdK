@@ -19,7 +19,7 @@ public class Interface {
         return scanner.nextLine();
     }
 
-    public static Date readDate() throws WrongDateFormatException {
+    public static Date readDate() throws WrongInputDataFormatException {
         Date date;
         String stringDate;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
@@ -30,27 +30,25 @@ public class Interface {
         try {
             date = simpleDateFormat.parse(stringDate);
         } catch (ParseException e) {
-            throw new WrongDateFormatException("Wrong date format", stringDate, e);
+            throw new WrongInputDataFormatException("Wrong date format", stringDate, e);
         }
 
         return date;
     }
 
-    public static Float readWeight() {
+    public static Float readWeight() throws WrongInputDataFormatException{
         Float weight = null;
         String stringWeight;
 
-        do {
-            System.out.print("Write weight: ");
-            stringWeight = scanner.nextLine();
+        System.out.print("Write weight: ");
+        stringWeight = scanner.nextLine();
 
-            try {
-                weight = Float.parseFloat(stringWeight);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
+        try {
+            weight = Float.parseFloat(stringWeight);
+        } catch (NumberFormatException e) {
+            throw new WrongInputDataFormatException("Input cannot be parse to float", stringWeight, e);
+        }
 
-        } while (weight == null);
 
         return weight;
     }
