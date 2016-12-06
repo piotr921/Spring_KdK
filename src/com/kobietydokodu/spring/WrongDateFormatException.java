@@ -1,7 +1,12 @@
 package com.kobietydokodu.spring;
 
-/**
- * Created by media on 2016-12-05.
- */
-public class WrongDateFormatException {
+public class WrongDateFormatException extends Exception{
+
+    public WrongDateFormatException(String reason, String statement) {
+        super(reason + ": " + statement);
+    }
+
+    public WrongDateFormatException(String reason, String statement, Throwable cause) {
+        super(reason + ": " + statement, cause);
+    }
 }
