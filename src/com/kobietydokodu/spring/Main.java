@@ -1,5 +1,6 @@
 package com.kobietydokodu.spring;
 
+import java.text.ParseException;
 import java.util.Date;
 
 public class Main {
@@ -7,8 +8,9 @@ public class Main {
     public static void main(String[] args) {
 
         Cat kot = new Cat();
-        Date birth;
+        Date birth = null;
         Float weight;
+
         kot.setName(Interface.readName());
         kot.setOwner(Interface.readOwner());
 
@@ -17,10 +19,11 @@ public class Main {
                 birth = Interface.readDate();
             } catch (WrongInputDataFormatException e) {
                 System.out.println(e.getMessage());
-                birth = null;
                 if (e.getCause() != null) {
                     System.out.println(" Orginal exception: " + e.getCause().getMessage());
                 }
+            } catch (ParseException e1){
+                e1.getCause().getMessage();
             }
         } while(birth == null);
 
