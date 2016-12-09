@@ -1,11 +1,15 @@
 package com.kobietydokodu.spring;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        CatDAO cats = new CatDAO();
 
         Cat kot = new Cat();
         Date birth = null;
@@ -43,6 +47,12 @@ public class Main {
 
         kot.setWeight(weight);
 
-        System.out.println(kot.introduceYourself());
+        cats.addCat(kot);
+
+        for(int i=0; i<cats.getCatList().size(); i++) {
+            System.out.println(cats.getCatList().get(i).introduceYourself());
+        }
+
+        Interface.menu();
     }
 }

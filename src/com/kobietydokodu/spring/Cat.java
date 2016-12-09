@@ -1,5 +1,6 @@
 package com.kobietydokodu.spring;
 
+import java.text.ParseException;
 import java.util.Date;
 
 public class Cat {
@@ -9,13 +10,36 @@ public class Cat {
     private Date birthDate;
     private float weight;
 
-    public Cat(){
-        /*
+    public Cat() {
         this.name = Interface.readName();
         this.owner = Interface.readOwner();
-        this.birthDate = Interface.readDate();
+
+        Date birthDate = null;
+        Float weight = null;
+
+        do {
+            try {
+                birthDate = Interface.readDate();
+            } catch (WrongInputDataFormatException e) {
+                System.out.println(e.getMessage());
+                if (e.getCause() != null) {
+                    System.out.println(" Orginal exception: " + e.getCause().getMessage());
+                }
+            } catch (ParseException e) {
+                System.out.println(e.getCause().getMessage());
+            }
+        } while(birthDate == null);
+        this.birthDate = birthDate;
+
+        try {
+            weight = Interface.readWeight();
+        } catch (WrongInputDataFormatException e) {
+            System.out.println(e.getMessage());
+            if (e.getCause() != null) {
+                System.out.println(" Orginal exception: " + e.getCause().getMessage());
+            }
+        }
         this.weight = weight;
-        */
     }
 
     public String getName() {
@@ -50,7 +74,7 @@ public class Cat {
         this.weight = weight;
     }
 
-    public String introduceYourself(){
+    public String introduceYourself() {
         return "Name = " + name + ", bitrh date = " + birthDate +
                 ", weight = " + weight + ", owner = " + owner;
     }
