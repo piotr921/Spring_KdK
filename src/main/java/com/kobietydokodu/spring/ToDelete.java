@@ -11,8 +11,8 @@ public class ToDelete {
         //Pattern pattern = Pattern.compile("\\d{4}(\\.\\d{2}){2}");
 
 
-        Pattern pattern = Pattern.compile("\\d{4}\\.([0][1-9]|[1][1-2])\\.([1-2][1-9]|[3][0-1])");
-        Matcher matcher = pattern.matcher("2000.09.33");
+        Pattern pattern = Pattern.compile("\\d{4}\\.([0][1-9]|[1][0-2])\\.([1-2][1-9]|[3][0-1])");
+        Matcher matcher = pattern.matcher("2000.10.13");
 
 
         /*

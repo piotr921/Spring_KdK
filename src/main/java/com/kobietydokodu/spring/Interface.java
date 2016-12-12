@@ -30,7 +30,7 @@ public class Interface {
         System.out.print("Write birth date: ");
         stringDate = scanner.nextLine();
 
-        Pattern pattern = Pattern.compile("\\d{4}\\.([0][1-9]|[1][1-2])\\.([1-2][1-9]|[3][0-1])");
+        Pattern pattern = Pattern.compile("\\d{4}\\.([0][1-9]|[1][0-2])\\.([1-2][1-9]|[3][0-1])");
         Matcher matcher = pattern.matcher(stringDate);
         if (matcher.matches()) {
             date = simpleDateFormat.parse(stringDate);
@@ -57,10 +57,10 @@ public class Interface {
         return weight;
     }
 
-    public static String menu(){
+    public static char menu(){
         System.out.println("\nSelect next step: \n1-Add new cat \n2-Display cat's details \nx-Close program");
 
-        String operation = scanner.nextLine();
+        char operation = scanner.nextLine().charAt(0);
 
         return operation;
     }

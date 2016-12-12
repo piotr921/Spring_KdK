@@ -8,7 +8,7 @@ public class CatDAO {
     private List<Cat> catList;
 
     public CatDAO(){
-        this.catList = new ArrayList<>();
+        this.catList = new ArrayList();
     }
 
     public void addCat(Cat cat){

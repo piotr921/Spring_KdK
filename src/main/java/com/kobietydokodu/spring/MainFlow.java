@@ -8,19 +8,19 @@ public class MainFlow {
         boolean exit = false;
 
         do {
-            String nextAction = Interface.menu();
+            char nextAction = Interface.menu();
             switch (nextAction) {
-                case "1":
+                case '1':
                     System.out.println("Adding new cat:");
                     Cat toAdd = new Cat();
                     cats.addCat(toAdd);
                     break;
 
-                case "2":
+                case '2':
                     Interface.displayCatsDetails(cats);
                     break;
 
-                case "x":
+                case 'x':
                     System.out.println("exit");
                     exit = true;
                     break;
