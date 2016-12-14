@@ -17,36 +17,37 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.2</version>
                 <configuration>
                     <archive>
                         <manifestFile>src/main/resources/custom/MANIFEST.MF</manifestFile>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <!--<classpathPrefix>lib/</classpathPrefix>-->
-                            <!--<mainClass>com.kobietydokodu.spring.MainFlow</mainClass>-->
-                        </manifest>
-                        <manifestEntries>
-                            <Built-By>kobietydokodu</Built-By>
-                        </manifestEntries>
                     </archive>
                 </configuration>
-<!--                <executions>
-                <execution>
-                    <id>make-assembly</id> &lt;!&ndash; this is used for inheritance merges &ndash;&gt;
-                    <phase>package</phase> &lt;!&ndash; bind to the packaging phase &ndash;&gt;
-                    <goals>
-                        <goal>jar</goal>
-                    </goals>
-                </execution>
-                </executions>-->
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2-beta-4</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.kobietydokodu.spring.MainFlow</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-
-
-<!--    <modules>
-        <module></module>
-    </modules>-->
-
-    
 </project>
