@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SpringLearning" />
+        <module name="cats-application" />
+        <module name="cats-domain" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SpringLearning" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="cats-application" target="1.8" />
+      <module name="cats-domain" target="1.8" />
+      <module name="SpringLearning" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
