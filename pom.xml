@@ -15,6 +15,7 @@
     <modules>
         <module>cats-domain</module>
         <module>cats-application</module>
+        <module>cats-webapp</module>
     </modules>
 
     <build>

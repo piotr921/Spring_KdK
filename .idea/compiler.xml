@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cats-application" />
         <module name="cats-domain" />
+        <module name="cats-webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="cats-application" target="1.8" />
       <module name="cats-domain" target="1.8" />
+      <module name="cats-webapp" target="1.8" />
       <module name="SpringLearning" target="1.8" />
     </bytecodeTargetLevel>
   </component>
