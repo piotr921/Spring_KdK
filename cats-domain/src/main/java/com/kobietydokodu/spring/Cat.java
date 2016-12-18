@@ -9,6 +9,9 @@ public class Cat {
     private Date birthDate;
     private float weight;
 
+    public Cat() {
+    }
+
     public Cat(String name, String owner, Date birthDate, float weight) {
         this.name = name;
         this.owner = owner;

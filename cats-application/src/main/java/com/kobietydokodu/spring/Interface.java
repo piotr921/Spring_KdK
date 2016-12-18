@@ -21,7 +21,7 @@ public class Interface {
         return scanner.nextLine();
     }
 
-    public static Date readDate() throws WrongInputDataFormatException, ParseException {
+    public static Date readDate() throws WrongInputDataFormatException {
         Date date;
         String stringDate;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
@@ -29,10 +29,14 @@ public class Interface {
         System.out.print("Write birth date: ");
         stringDate = scanner.nextLine();
 
-        Pattern pattern = Pattern.compile("\\d{4}\\.([0][1-9]|[1][0-2])\\.([1-2][1-9]|[3][0-1])");
+        Pattern pattern = Pattern.compile("\\d{4}\\.([0][1-9]|[1][0-2])\\.([0-2][1-9]|[3][0-1])");
         Matcher matcher = pattern.matcher(stringDate);
         if (matcher.matches()) {
-            date = simpleDateFormat.parse(stringDate);
+            try {
+                date = simpleDateFormat.parse(stringDate);
+            } catch (ParseException e) {
+                throw new WrongInputDataFormatException("Cannot parse", stringDate, e);
+            }
         } else {
             throw new WrongInputDataFormatException("Wrong date format", stringDate);
         }
@@ -56,7 +60,7 @@ public class Interface {
         return weight;
     }
 
-    public static char menu(){
+    public static char menu() {
         System.out.println("\nSelect next step: \n1-Add new cat \n2-Display cat's details \nx-Close program");
 
         char operation = scanner.nextLine().charAt(0);
@@ -64,11 +68,11 @@ public class Interface {
         return operation;
     }
 
-    public static void displayCatsDetails(CatDAO catDao){
+    public static void displayCatsDetails(CatDAO catDao) {
         boolean stop = false;
 
         System.out.println("Cat list:\n");
-        for(Cat cat:catDao.getCatList()){
+        for (Cat cat : catDao.getCatList()) {
             System.out.println(catDao.getCatList().indexOf(cat) + ". " + cat.getName());
         }
 
